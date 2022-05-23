@@ -8,12 +8,54 @@ var getPasswordLength = function () {
   }
   return getPasswordLength(answer);
 };
-var getCharacterTypes = function () {};
+var getCharacterTypes = function (promptQuestion) {
+  var answer = "";
+  while (answer !== "yes" && answer !== "no") {
+    answer = prompt(promptQuestion);
+    answer = answer.toLowerCase();
+    console.log(answer);
+  }
+  return answer;
+};
+var validateType = function (charAnswers) {
+  for (var i = 0; i < charAnswers.length; i++) {
+    if (charAnswers[i] === "yes" || charAnswers[i] === "no") {
+      return true;
+    }
+  }
+  return false;
+};
 var generatePassword = function () {
   // length of password
   var lengthPassword = getPasswordLength();
-  // character types
-  var characterTypes = getCharacterTypes();
+  // set isValidate to false
+  var isValidated = false;
+  while (!isValidated) {
+    //lowercase type
+    var lowercasePrompt =
+      "Do you want your password to have lowercase letters, type:YES or NO";
+    var haveLowercase = getCharacterTypes(lowercasePrompt);
+    //uppercase type
+    var uppercasePrompt =
+      "Do you want your password to have uppercase letters, type:YES or NO";
+    var haveUppercase = getCharacterTypes(uppercasePrompt);
+    // number type
+    var numPrompt = "Do you want your password to have numbers, type:YES or NO";
+    var haveNumTypes = getCharacterTypes(numPrompt);
+    // special character type
+    var specialCharPrompt =
+      "Do you want your password to have special characters, type:YES or NO";
+    var haveSpecialCharTypes = getCharacterTypes(specialCharPrompt);
+
+    // array of answers
+    var characterTypeAnswers = [
+      haveLowercase,
+      haveUppercase,
+      haveNumTypes,
+      haveSpecialCharTypes,
+    ];
+    isValidated = validateType(characterTypeAnswers);
+  }
 };
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
