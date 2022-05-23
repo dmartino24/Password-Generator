@@ -4,7 +4,7 @@ Create a password using the prompt thats fits your needs. Choose the desired len
 
 ## Screenshot of site
 
-![](..%5Cimg-for-websites%5Cscreencapture-password-generator.png)
+![](Assets%5Cscreencapture-password-generator.png)
 
 ## Github-Page
 
