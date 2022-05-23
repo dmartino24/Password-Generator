@@ -1,4 +1,4 @@
-# Password Generator Starter Code
+# Password Generator
 
 Create a password using the prompt thats fits your needs. Choose the desired length of password and character types.
 
