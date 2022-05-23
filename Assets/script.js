@@ -58,7 +58,7 @@ var CreatePassword = function () {
     '.','/',':',';','<','=','>','?','@','[','\\',']','^','_','`','{','|','}','~']
     validChars = validChars.concat(newArray);
   }
-  var newPassword = ""
+  var newPassword = "";
   for(var i = 0; i < passwordLength;i++){
     newPassword += validChars[Math.floor(Math.random() * validChars.length)];
   }
