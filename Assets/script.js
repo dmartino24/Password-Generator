@@ -1,10 +1,11 @@
-// Assignment code here
+// global vars
 var passwordLength;
 var haveLowercase;
 var haveUppercase;
 var haveNumbers;
 var haveSpecialCharTypes;
 
+// returns the desired password length 
 var getPasswordLength = function () {
   var answer = prompt(
     "Please set the preferred length of your password min 8 max 125 characters."
@@ -14,6 +15,7 @@ var getPasswordLength = function () {
   }
   return getPasswordLength(answer);
 };
+// validates that user typed in yes or no
 var getCharacterTypes = function (promptQuestion) {
   var answer = "";
   while (answer !== "yes" && answer !== "no") {
@@ -22,6 +24,7 @@ var getCharacterTypes = function (promptQuestion) {
   }
   return answer;
 };
+// validates that user typed yes to one or more character types
 var validateType = function (charAnswers) {
   for (var i = 0; i < charAnswers.length; i++) {
     if (charAnswers[i] === "yes") {
@@ -33,6 +36,7 @@ var validateType = function (charAnswers) {
   );
   return false;
 };
+// creates a random password with the correct character types and length
 var CreatePassword = function () {
   var validChars = [];
   if (haveLowercase === 'yes') {
@@ -68,19 +72,19 @@ var generatePassword = function () {
   while (!isValidated) {
     //lowercase type
     var lowercasePrompt =
-      "Do you want your password to have lowercase letters, type:YES or NO";
+      "Do you want your password to have lowercase letters, type: YES or NO";
     haveLowercase = getCharacterTypes(lowercasePrompt);
     //uppercase type
     var uppercasePrompt =
-      "Do you want your password to have uppercase letters, type:YES or NO";
+      "Do you want your password to have uppercase letters, type: YES or NO";
     haveUppercase = getCharacterTypes(uppercasePrompt);
     // number type
     var numberPrompt =
-      "Do you want your password to have numbers, type:YES or NO";
+      "Do you want your password to have numbers, type: YES or NO";
     haveNumbers = getCharacterTypes(numberPrompt);
     // special character type
     var specialCharPrompt =
-      "Do you want your password to have special characters, type:YES or NO";
+      "Do you want your password to have special characters, type: YES or NO";
     haveSpecialCharTypes = getCharacterTypes(specialCharPrompt);
     // array of answers
     var characterTypeAnswers = [
@@ -91,6 +95,7 @@ var generatePassword = function () {
     ];
     isValidated = validateType(characterTypeAnswers);
   }
+  //creates the password string
   return CreatePassword();
 };
 // Get references to the #generate element
